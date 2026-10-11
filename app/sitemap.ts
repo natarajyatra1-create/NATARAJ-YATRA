@@ -7,6 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   return [
     {url: SITE_URL + '/', lastModified: now, changeFrequency: 'weekly', priority: 1},
+    {url: SITE_URL + '/reviews', lastModified: now, changeFrequency: 'weekly', priority: 0.7},
     ...cities.map(c => ({url: `${SITE_URL}/city/${c.slug}`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.8})),
     ...routes.map(r => ({url: `${SITE_URL}/taxi/${r.slug}`, lastModified: now, changeFrequency: 'monthly' as const, priority: 0.6}))
   ];
