@@ -72,15 +72,17 @@ export const openingHours = {'@type': 'OpeningHoursSpecification', dayOfWeek: al
 
 export const taxiLd = (name: string, url: string, areaServed: object | object[]) => ({
   '@context': 'https://schema.org',
-  '@type': 'TaxiService',
+  '@type': ['LocalBusiness', 'TaxiService'],
   name,
   url,
   telephone: '+' + PHONE,
   email: EMAIL,
   image: SITE_URL + '/scene.jpg',
+  logo: SITE_URL + '/logo.png',
+  geo: {'@type': 'GeoCoordinates', latitude: 21.5315, longitude: 70.5001},
   areaServed,
   openingHoursSpecification: openingHours,
-  address: {'@type': 'PostalAddress', addressLocality: 'Bhavnath, Junagadh', addressRegion: 'Gujarat', addressCountry: 'IN'}
+  address: {'@type': 'PostalAddress', streetAddress: 'Bhavnath Taleti Rd', addressLocality: 'Bhavnath, Junagadh', addressRegion: 'Gujarat', postalCode: '362001', addressCountry: 'IN'}
 });
 
 export const gujaratCity = (name: string) => ({'@type': 'City', name, containedInPlace: {'@type': 'State', name: 'Gujarat'}});
